@@ -1,5 +1,5 @@
 class HomeController < AuthenticatedController
   def index
-    @products = ShopifyAPI::Product.find_by title: 'SA'
+    @products = ShopifyAPI::Product.where("title = 'SA'")
   end
 end
