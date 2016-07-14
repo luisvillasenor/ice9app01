@@ -1,5 +1,5 @@
 class HomeController < AuthenticatedController
   def index
-    @products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
+    @products = ShopifyAPI::Product.find({ :product_id, 461948815 })
   end
 end
