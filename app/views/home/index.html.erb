@@ -17,14 +17,14 @@
     primary: {
       label: "Refresh",
       message: 'bar_save',
-      loading: true
+      loading: false
     },
     secondary: [
-      { label: "Ayuda", callback: function(){ alert('help'); } },
+      { label: "Help", callback: function(){ alert('help'); } },
       { label: "Configuration", href: "http://my-app.com/preview_url", target: "new" }
     ],
   },
-  title: 'Ordenes',
+  title: 'Call Phone Orders',
   icon: 'https://example.com/path/to/icon.png',
   pagination: {
     next: {
@@ -41,7 +41,7 @@
 <div class="section-listing">
     <div class="section-options">
         <ul class="section-tabs">
-            <li class="active"><a href="#top">Pendientes</a></li>
+            <li class="active"><a href="#top">All</a></li>
             
         </ul>
         <div class="section-filter">
