@@ -15,23 +15,16 @@
       },
   buttons: {
     primary: {
-      label: "Guardar",
+      label: "Refresh",
       message: 'bar_save',
       loading: true
     },
     secondary: [
       { label: "Ayuda", callback: function(){ alert('help'); } },
-      { label: "Mas...",
-        type: "dropdown",
-        links: [
-                 { label: "Actualizar", href: "/update", target: "app" },
-                 { label: "Borrar", callback: function(){ alert("destroy") } }
-               ]
-      },
-      { label: "Preview", href: "http://my-app.com/preview_url", target: "new" }
+      { label: "Configuration", href: "http://my-app.com/preview_url", target: "new" }
     ],
   },
-  title: 'Productos',
+  title: 'Ordenes',
   icon: 'https://example.com/path/to/icon.png',
   pagination: {
     next: {
@@ -41,12 +34,6 @@
       callback: function(){ alert('no previous pages') },
       loading: false
     }
-  },
-  breadcrumb: {
-    label: "Subsection",
-    href: "/subsection",
-    target: 'app',
-    loading: false
   }
 });
   });
@@ -54,13 +41,12 @@
 <div class="section-listing">
     <div class="section-options">
         <ul class="section-tabs">
-            <li class="active"><a href="#top">Todos</a></li>
+            <li class="active"><a href="#top">Pendientes</a></li>
             
         </ul>
         <div class="section-filter">
           <div class="section-row">
-            <a class="btn filter-left" href="#">Filtrar productos <span class="icon ico-down"></span></a>
-            <input class="input-search" placeholder="Information about this filter" type="text">
+            <input class="input-search" placeholder="Numero de Orden" type="text">
           </div>
         </div>
         <div class="section-content">
@@ -68,20 +54,24 @@
                 <table class="table-section">
                   <thead>
                   <tr>
-                      <th class="sortable">ID</th>
-                      <th class="sortable">TITULO</th>
-                      <th class="sortable">IMAGEN</th>
-                      <th class="sortable">Column 4</th>
+                      <th class="sortable">Order #</th>
+                      <th class="sortable">Date</th>
+                      <th class="sortable">Email</th>
+                      <th class="sortable">Payment Status</th>
+                      <th class="sortable">Total</th>
+                      <th></th>
                   </tr>
                   </thead>
                   <tbody>
-                      <% @products.each do |product| %>
+                      <% @orders.each do |order| %>
                         <tr>
                           <td>
-                            <a href='https://<%="#{@shop_session.url}/admin/products/#{product.id}"%>' target="_blank"> <%= product.id %> </a>
+                            <a href='https://<%="#{@shop_session.url}/admin/orders/#{order.id}"%>' target="_blank"> <%= order.id %> </a>
                           </td>
-                          <td><%= product.title %></td>
-                          <td><%= product.image.attributes[:id] %></td>
+                          <td><%= order.created_at %></td>
+                          <td><%= order.email %></td>
+                          <td><%= order.financial_status %></td>
+                          <td><%= order.total_price %></td>
                           <td><a href="#top" class="btn default">Botón de Acción</a></td>
                         </tr>
                       <% end %>
