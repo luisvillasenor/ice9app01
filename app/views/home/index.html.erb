@@ -58,6 +58,7 @@
                       <th class="sortable">Date</th>
                       <th class="sortable">Email</th>
                       <th class="sortable">Payment Status</th>
+                      <th class="sortable">Line Items</th>
                       <th class="sortable">Total</th>
                       <th></th>
                   </tr>
@@ -69,6 +70,7 @@
                           <td><%= order.created_at %></td>
                           <td><%= order.email %></td>
                           <td><%= order.financial_status %></td>
+                          <td><%= order.line_items %></td>
                           <td><%= order.total_price %></td>
                           <td><a href="#top" class="btn default">Cobrar</a></td>
                         </tr>
