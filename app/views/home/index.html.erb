@@ -66,7 +66,7 @@
                       <% @orders.each do |order| %>
                         <tr>
                           <td><%= order.name %> </a></td>
-                          <td><%= order.created_at %></td>
+                          <td><%= order.created_at.to_formatted_s(:long_ordinal) %></td>
                           <td><%= order.email %></td>
                           <td><%= order.financial_status %></td>
                           <td><%= order.total_price %></td>
